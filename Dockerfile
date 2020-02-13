@@ -39,7 +39,7 @@ RUN sudo $HIAI_HOME/add_sudo.sh $HIAI_USER && $HIAI_HOME/install.sh && \
     rm -f $HIAI_HOME/MSpore_DDK-*.tar.gz Mind-Studio_Ubuntu-*.tar
 
 RUN sudo apt-get update && \
-    sudo apt-get install --no-install-recommends -y kmod dkms && \
+    sudo apt-get install --no-install-recommends -y kmod dkms linux-headers-$(uname -r) pciutils dmidecode && \
     sudo rm -rf /var/cache/apt/archives/*
 
 RUN unzip npu_ubuntu.*.zip && rm -f npu_ubuntu.*.zip
