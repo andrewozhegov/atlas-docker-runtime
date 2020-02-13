@@ -7,7 +7,14 @@ services:
       context: .
     volumes:
     - ./itv-atlas:/home/HwHiAiUser/itv-atlas
+    devices:
+    - "/dev/mem:/dev/mem"
+    - "/dev/davinci_manager:/dev/davinci_manager"
+    - "/dev/hisi_hdc:/dev/hisi_hdc"
     network_mode: "host"
+    privileged: true
     environment:
     - TZ=Europe/Moscow
     - DEBIAN_FRONTEND=noninteractive
+    cap_add:
+    - LINUX_IMMUTABLE
