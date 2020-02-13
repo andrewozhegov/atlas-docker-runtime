@@ -1,0 +1,13 @@
+version: "3.4"
+services:
+  mind_studio:
+    container_name: mind_studio
+    image: mind_studio:latest
+    build:
+      context: .
+    volumes:
+    - ./itv-atlas:/home/HwHiAiUser/itv-atlas
+    network_mode: "host"
+    environment:
+    - TZ=Europe/Moscow
+    - DEBIAN_FRONTEND=noninteractive
